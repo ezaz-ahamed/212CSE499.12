@@ -23,15 +23,15 @@ Buliding a PWA needs some essential tools along with HTML, CSS, JS etc. A list i
 
 
 -------
-[1] https://web.dev/progressive-web-apps\
-[2] https://flutter.dev\
-[3] https://vuejs.org\
-[4] https://cli.vuejs.org\
-[5] https://developers.google.com/web/tools/lighthouse\
-[6] https://material.io/design\
-[7] https://github.com/vuetifyjs/vuetify#introduction\
-[8] https://nodejs.org/en\
-[9] https://www.npmjs.com\
-[10] https://developers.google.com/web/tools/workbox\
-[11] https://firebase.google.com\
+[1] https://web.dev/progressive-web-apps<br>
+[2] https://flutter.dev<br>
+[3] https://vuejs.org<br>
+[4] https://cli.vuejs.org<br>
+[5] https://developers.google.com/web/tools/lighthouse<br>
+[6] https://material.io/design<br>
+[7] https://github.com/vuetifyjs/vuetify#introduction<br>
+[8] https://nodejs.org/en<br>
+[9] https://www.npmjs.com<br>
+[10] https://developers.google.com/web/tools/workbox<br>
+[11] https://firebase.google.com<br>
 [12] https://developers.google.com/maps
