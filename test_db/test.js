@@ -1,30 +1,37 @@
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// creates user as a json, in users "collections" in NOSQL FormData, adds IDBTransaction, 
+// conlogs the id
+
 var firebaseConfig = {
-    apiKey: "",
-    authDomain: "",
-    projectId: "",
-    storageBucket: "",
-    messagingSenderId: "",
-    appId: "",
-    measurementId: ""
+
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-firebase.analytics();
 
 var db = firebase.firestore();
 
-// creates user as a json, in users "collections" in NOSQL FormData, adds IDBTransaction, 
-// conlogs the id
-db.collection("users").add({
-    first: "Rifat",
-    last: "Masud",
-    born: 1996
-})
-.then((docRef) => {
-    console.log("Document written with ID: ", docRef.id);
-})
-.catch((error) => {
-    console.error("Error adding document: ", error);
+function add(collection_name, first, last, born) {
+    db.collection(collection_name).add({
+        first: first,
+        last: last,
+        born: Number(born)
+    }).then(function () {
+        console.log("Status Saved");
+    }).catch((error) => {
+        console.error("Error adding document: ", error);
+    });
+
+}
+
+
+document.getElementById("myBtn").addEventListener("click", function () {
+    const fname = document.getElementById("fname").value;
+    console.log(fname);
+    const lname = document.getElementById("lname").value;
+    const bdate = document.getElementById("bdate").value;
+    add("users", fname, lname, bdate);
+
+    setTimeout(() => {
+        window.open("./success.html");
+    }, 1000);
+
 });
