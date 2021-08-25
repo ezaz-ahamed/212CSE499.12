@@ -34,7 +34,8 @@
     querySnapshot.forEach((doc) => {
         data = doc.data();
         var para = document.createElement("p");
-        para.innerHTML = "Name: "+ data.first +" "+ data.last+ ", Birth Year: "+ data.born+ "<br/ > ";
+        para.innerHTML = "Welcome "+ data.username +"! "+ "Your Mail is: "+ data.email+ 
+        "<br/ > ";
         document.body.appendChild(para);
     });
 });
