@@ -12,12 +12,13 @@ firebase.initializeApp(firebaseConfig);
 
 const auth = firebase.auth()
 
-
 auth.onAuthStateChanged((user) => {
     if (user) {
         workerOnAuth(user)
+        workerOnUI(user)
     } else {
         workerOnAuth(user)
+        workerOnUI()
         console.log('User is logged Out');
     }
 });
