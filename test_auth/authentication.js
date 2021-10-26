@@ -69,3 +69,17 @@ logout.addEventListener('click', (e) => {
     auth.signOut()
     location.reload()
 })
+
+// google sign in 
+const googleSignIn = document.querySelector('#google')
+googleSignIn.addEventListener('click', (e) => {
+    var provider = new firebase.auth.GoogleAuthProvider();
+
+    auth.signInWithPopup(provider)
+        .then((result) => {
+            console.log(result)
+            // ...
+        }).catch((error) => {
+            console.log(error.code);
+        })
+})
