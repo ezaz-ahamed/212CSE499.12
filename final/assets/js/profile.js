@@ -24,6 +24,7 @@ auth.onAuthStateChanged((user) => {
 const worker = (user) => {
     if (user !== null) {
         var location;
+
         // geolocation updates per 2 seconds
         if (!navigator.geolocation) {
             alert('Geolocation is not supported by your browser');
@@ -31,7 +32,7 @@ const worker = (user) => {
 
             setInterval(() => {
                 navigator.geolocation.getCurrentPosition(getPosition)
-            }, 5000);
+            }, 10000);
         }
 
         function getPosition(position) {
@@ -43,12 +44,10 @@ const worker = (user) => {
             }
             var greenIcon = new L.Icon({
                 iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
-
                 iconSize: [25, 41],
                 iconAnchor: [12, 41],
                 popupAnchor: [1, -34],
             });
-
 
             location = L.marker([lat, lng], {
                 icon: greenIcon
@@ -61,7 +60,6 @@ const worker = (user) => {
 
         logout.addEventListener('click', (e) => {
             auth.signOut()
-            console.log('Helo');
             window.open('./index.html')
         })
 
@@ -70,7 +68,7 @@ const worker = (user) => {
             snapshot.forEach((doc) => {
                 const fname = doc.data().first;
                 greet.innerHTML = 'Hi ' + fname;
-                console.log(doc.data());
+
             })
         })
 
@@ -113,11 +111,37 @@ const worker = (user) => {
             window.open('./profile.html')
         })
 
+        // added for marker groups
+        var votableMarkers = [];
         // map updates for votable locations
-        // const mapUpdateVoting = document.getElementById('mapUpdateVoting')
-        // mapUpdateVoting.addEventListener('click', (e) => {
+        const mapUpdateVoting = document.getElementById('mapUpdateVoting')
+        const removeLayer = document.getElementById('removeLayer')
+        mapUpdateVoting.addEventListener('click', (e) => {
+            const toBeAddedCollection = db.collection('toBeAdded');
+            toBeAddedCollection.get().then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
 
-        // })
+                    var orangeIcon = new L.Icon({
+                        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png',
+                        iconSize: [25, 41],
+                        iconAnchor: [12, 41],
+                        popupAnchor: [1, -34],
+                    });
+
+                    votableMarkers.push(L.marker([doc.data().latitude, doc.data().longitude], {
+                        icon: orangeIcon
+                    }).bindPopup("Current Votes to this location: <br>" + doc.data().votes))
+
+                });
+            });
+
+            const votableMarkersGroup = L.layerGroup(votableMarkers).addTo(map)
+
+            removeLayer.addEventListener('click', (e) => {
+                map.removeLayer(votableMarkersGroup)
+            })
+
+        })
 
 
 

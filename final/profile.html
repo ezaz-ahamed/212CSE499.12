@@ -175,18 +175,30 @@
                     <span class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></span>
                 </h1>
 
-                <div class='pt-72 flex items-center justify-center'>
-
-                    <a href="prevpark.html" target="_blank">
-                        <button class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-full"
-                            id="mapUpdateVoting">
-                            <p class="text-xl font-bold">
-                                See Locations up for voting
-                            </p>
-                        </button>
-                    </a>
+                <div class="py-5">
+                    <p class="font-medium font-mono text-lg">
+                        The locations up for vote are seen in map as <b>orange</b> markers.
+                    </p>
                 </div>
 
+                <div class="flex flex-col h-96 justify-center items-center space-y-3">
+
+                    <button
+                        class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-full text-2xl"
+                        id="mapUpdateVoting">
+                        <p class="font-bold">
+                            See Locations up for voting
+                        </p>
+                    </button>
+
+                    <button
+                        class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-full text-2xl"
+                        id="removeLayer">
+                        <p class="font-bold">
+                            Hide Locations up for voting
+                        </p>
+                    </button>
+                </div>
             </div>
 
             <div class="leaflet-sidebar-pane" id="messages">
