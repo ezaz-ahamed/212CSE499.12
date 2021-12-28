@@ -8,17 +8,26 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     accessToken: 'pk.eyJ1Ijoicm1hc3VkIiwiYSI6ImNrdmk2NzA1dTBnZGcybm4wMTgzejB4cTcifQ.ynVJ4R_cZch4YbtlqGZFdA'
 }).addTo(map);
 
-function getCurrentPosition() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-            var lat = position.coords.latitude;
-            var lng = position.coords.longitude;
-            var marker = L.marker([lat, lng]).addTo(map);
-            marker.bindPopup("<b>Your current position!</b><br>Latitude: " + lat + "<br>Longitude: " + lng).openPopup();
-        });
-    } else {
-        alert("Geolocation is not supported by this browser.");
-    }
+if (!navigator.geolocation) {
+    alert('Geolocation is not supported by your browser');
+} else {
+
+    setInterval(() => {
+        navigator.geolocation.getCurrentPosition(getPosition)
+    }, 2000);
 }
 
-getCurrentPosition()
+var marker;
+
+function getPosition(position) {
+    var lat = position.coords.latitude;
+    var lng = position.coords.longitude;
+
+    if (marker) {
+        map.removeLayer(marker)
+    }
+
+
+    marker = L.marker([lat, lng]).addTo(map);
+    marker.bindPopup("<b>Your current location</b><br>Latitude: " + lat + "<br>Longitude: " + lng).openPopup();
+}
