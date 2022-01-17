@@ -1,4 +1,3 @@
 # 212CSE499.12
----------------
 
-branch for [@riffAt2013s](https://github.com/riffAt2013) individual testing
+Final Repo for CSE 499 - Fall 2021.
