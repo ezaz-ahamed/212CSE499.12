@@ -1,0 +1,13 @@
+// at test_db firebase config
+var firebaseConfig = {
+    apiKey: "AIzaSyBnGMPSO546hpwnIqhWyMXcRweY6PuzaAU",
+    authDomain: "cse499a-dff5d.firebaseapp.com",
+    projectId: "cse499a-dff5d",
+    storageBucket: "cse499a-dff5d.appspot.com",
+    messagingSenderId: "376721390723",
+    appId: "1:376721390723:web:bb97a93b72f196057f2fb6",
+    measurementId: "G-FWCDFEQ3XX"
+};
+
+// at test_map leaflet API
+accessToken: 'pk.eyJ1Ijoicm1hc3VkIiwiYSI6ImNrcm1lamV6ODc2cTkydnF1ZmE5ZmllaHoifQ.vu-5hQtqGd1O15IuiBy7PQ'
