@@ -1,2 +1,4 @@
 key.txt
-test_auth
+settings.json
+node_modules/
+.vscode

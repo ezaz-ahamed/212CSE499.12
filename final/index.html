@@ -1,0 +1,77 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <title>Can I Park Here!</title>
+</head>
+
+<body>
+
+  <div class="bg-center md:bg-repeat bg-fixed h-full flex justify-center items-center"
+    style="background-image: url(./assets/images/parking.png)">
+
+    <div class="shadow-md border border-gray-200 rounded-lg w-auto md:w-1/3 px-6 py-2 bg-zinc-50 border-gray-700">
+
+
+      <!-- actual form content -->
+      <form class="space-y-6" id="login-form">
+        <img class="mx-auto rounded-lg h-24" src="./assets/images/logo.png" alt="">
+        <h3 class="text-center text-xl font-semibold text-black-300">Log in to Can I Park Here
+        </h3>
+        <div>
+          <label for="email" class="text-sm font-medium text-black-300 block mb-2">Your email</label>
+          <input type="email" name="email" id="email"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-black"
+            placeholder="name@company.com" required>
+        </div>
+        <div>
+          <label for="password" class="text-sm font-medium text-gray-900 block mb-2 text-black-300">Your
+            password</label>
+          <input type="password" name="password" id="password" placeholder="••••••••"
+            class="bg-white-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-black"
+            required>
+        </div>
+
+        <button type="submit"
+          class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login
+        </button>
+
+        <div class="text-sm font-medium text-black-300">
+          Not registered? <a href="signup.html" class="text-blue-700 hover:underline dark:text-blue-500">Create
+            account</a>
+        </div>
+
+        <p class="text-center text-sm font-medium  text-black-300">
+          Or Sign Up via following
+        </p>
+
+
+        <div class="bg-orange-500  mx-auto w-fit rounded-md">
+          <div class="flex justify-center space-x-4 py-2">
+            <a href="#" class="text-center text-lg font-medium pl-8 text-black-500 hover:text-blue-900">
+              <i class="fa-brands fa-google"></i>
+            </a>
+            <a href="#" class="text-center text-lg font-medium  text-black-500 hover:text-indigo-500">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="#" class="text-center text-lg font-medium pr-8 text-black-500 hover:text-blue-900">
+              <i class="fa-brands fa-github"></i>
+            </a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
+  <script src="./assets/js/signin.js"></script>
+
+</body>
+
+</html>
